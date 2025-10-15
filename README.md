@@ -1,3 +1,8 @@
+<div align="center">
+<!-- LOGO PLACEHOLDER - Add your logo here -->
+<img src="src/assets/icons/ELPM-preview.png" alt="ELPM Logo" width="200"/>
+
+
 # ELPM Documentation Index
 
 ## 📚 Complete Documentation Guide
