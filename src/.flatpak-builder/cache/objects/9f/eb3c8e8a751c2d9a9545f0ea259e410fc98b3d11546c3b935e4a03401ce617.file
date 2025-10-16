@@ -1,5 +1,0 @@
-[Runtime]
-name=com.theoffsecdesk.ELPM.Debug
-
-[ExtensionOf]
-ref=app/com.theoffsecdesk.ELPM/x86_64/master
