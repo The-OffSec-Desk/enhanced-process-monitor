@@ -96,7 +96,7 @@ Welcome to the ELPM (Enhanced Linux Process Monitor) PyQt6 documentation. This i
 - **How to install?** → [INSTALL.md](src/INSTALL.md) or [QUICK_START.md](src/QUICK_START.md)
 - **Having issues?** → [INSTALL.md](src/INSTALL.md) § Troubleshooting
 - **First time setup?** → [CHECKLIST.md](src/CHECKLIST.md)
-- **Cross platform** → [CROSSPLATFOMR.md](src/CROSSPLATFOMR.md)
+- **Cross platform** → [CROSSPLATFORM.md](src/CROSSPLATFORM.md)
 
 ### Usage
 - **How to use?** → [QUICK_START.md](src/QUICK_START.md) § Basic Usage
