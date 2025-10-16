@@ -33,45 +33,48 @@ ELPM has been packaged as native executables for all major operating systems usi
 
 ## Installation
 
-### Linux
+### All Platforms (Clone & Run)
 
-1. Download `ELPM` from the releases page
-2. Make it executable:
+The quickest way to get ELPM running on any platform is to clone the repository and run the executable:
+
+1. Clone the repository:
    ```bash
-   chmod +x ELPM
+   git clone https://github.com/The-OffSec-Desk/enhanced-process-monitor.git
+   cd enhanced-process-monitor/src
    ```
+
+2. Make the executable (Linux/macOS only):
+   ```bash
+   chmod +x dist/ELPM
+   ```
+
 3. Run it:
    ```bash
-   ./ELPM
+   # Linux/macOS
+   ./dist/ELPM
+
+   # Windows
+   dist\ELPM.exe
    ```
 
-**Optional:** Create a desktop shortcut or add to your applications menu:
-```bash
-cp ELPM ~/.local/bin/ELPM
-```
+### Platform-Specific Notes
 
-### macOS
+**Linux**
+- The executable is at `dist/ELPM`
+- Make it executable first: `chmod +x dist/ELPM`
+- Optional: Create a desktop shortcut or add to your PATH for easy access
 
-1. Download `ELPM.app` from the releases page
-2. Move it to your Applications folder:
-   ```bash
-   mv ELPM.app /Applications/
-   ```
-3. Launch it from Applications or Spotlight search
+**macOS**
+- The executable is at `dist/ELPM`
+- On first launch, you may see a security warning
+- If you get "cannot be opened because the developer cannot be verified":
+  - Right-click the app and select "Open"
+  - Or go to System Settings → Privacy & Security → Allow anyway
 
-**Note:** On first launch, macOS may ask for permission. Click "Open" when prompted.
-
-If you get a "cannot be opened because the developer cannot be verified" error:
-- Right-click the app and select "Open"
-- Or go to System Settings → Privacy & Security → Allow anyway
-
-### Windows
-
-1. Download `ELPM.exe` from the releases page
-2. Double-click to run (or place it anywhere in your PATH for command-line access)
-3. The app will start immediately
-
-**Optional:** Create a shortcut on your desktop by right-clicking the `.exe` file and selecting "Create shortcut"
+**Windows**
+- The executable is at `dist\ELPM.exe`
+- Double-click to run or execute from command prompt
+- Windows Defender may ask for permission — click "Run anyway"
 
 ## Usage
 
