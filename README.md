@@ -190,24 +190,6 @@ docs/ (or src/)
 
 ---
 
-## Documentation Statistics
-
-| Document | Lines | Words | Purpose | Audience |
-|----------|-------|-------|---------|----------|
-| QUICK_START.md | ~200 | ~1,500 | Quick reference | New users |
-| INSTALL.md | ~300 | ~2,500 | Installation guide | All users |
-| CHECKLIST.md | ~400 | ~2,000 | Verification steps | All users |
-| README_PYQT.md | ~350 | ~3,000 | Complete guide | All users |
-| README_SUMMARY.md | ~400 | ~3,500 | Project overview | All users |
-| ARCHITECTURE.md | ~600 | ~4,000 | Technical docs | Developers |
-| FEATURES.md | ~400 | ~3,000 | Feature status | Developers |
-| CHANGELOG.md | ~300 | ~2,500 | Version history | Developers |
-| INDEX.md | ~300 | ~2,000 | This file | All users |
-
-**Total Documentation**: ~3,250 lines, ~24,000 words
-
----
-
 ## Search Guide
 
 ### Find information about...
