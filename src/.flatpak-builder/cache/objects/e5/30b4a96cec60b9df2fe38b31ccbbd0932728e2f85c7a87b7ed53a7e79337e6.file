@@ -1,0 +1,19 @@
+[Application]
+name=com.theoffsecdesk.ELPM
+runtime=org.freedesktop.Platform/x86_64/23.08
+sdk=org.freedesktop.Sdk/x86_64/23.08
+command=run_elpm.sh
+
+[Context]
+shared=network;ipc;
+sockets=x11;wayland;
+devices=dri;
+filesystems=home;/sys:ro;/proc:ro;
+
+[Extension com.theoffsecdesk.ELPM.Debug]
+directory=lib/debug
+autodelete=true
+no-autodownload=true
+
+[Build]
+built-extensions=com.theoffsecdesk.ELPM.Debug;

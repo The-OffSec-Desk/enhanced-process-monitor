@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Enhanced Linux Process Monitor
+Comment=Monitor processes, connections, and system performance in real time
+Exec=run_elpm.sh
+Icon=com.theoffsecdesk.ELPM
+Terminal=false
+Type=Application
+Categories=System;Utility;Security;

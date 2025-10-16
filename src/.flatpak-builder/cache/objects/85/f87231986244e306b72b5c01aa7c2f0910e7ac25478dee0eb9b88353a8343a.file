@@ -1,0 +1,51 @@
+{
+  "id" : "com.theoffsecdesk.ELPM",
+  "runtime" : "org.freedesktop.Platform",
+  "runtime-version" : "23.08",
+  "runtime-commit" : "065c61a337f78034498ad18e2707dacb6852823b150488b9f5c95e1548f70ab5",
+  "sdk" : "org.freedesktop.Sdk",
+  "sdk-commit" : "f7bd662b000ec1a857b81d8fc158295493cc79b7286bae2c99ee357ab7ef17db",
+  "command" : "run_elpm.sh",
+  "modules" : [
+    {
+      "name" : "python3-deps",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : "wheels",
+          "type" : "dir"
+        }
+      ],
+      "build-commands" : [
+        "pip3 install --prefix=/app --no-index --find-links=. *.whl"
+      ]
+    },
+    {
+      "name" : "elpm",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : ".",
+          "type" : "dir"
+        }
+      ],
+      "build-commands" : [
+        "install -Dm755 run_elpm.sh /app/bin/run_elpm.sh",
+        "install -Dm644 com.theoffsecdesk.ELPM.desktop /app/share/applications/com.theoffsecdesk.ELPM.desktop",
+        "install -Dm644 assets/icons/ELPM-preview.png /app/share/icons/hicolor/256x256/apps/com.theoffsecdesk.ELPM.png",
+        "install -Dm644 elpm_main.py /app/bin/elpm_main.py"
+      ]
+    }
+  ],
+  "finish-args" : [
+    "--share=network",
+    "--share=ipc",
+    "--socket=x11",
+    "--socket=wayland",
+    "--filesystem=home",
+    "--device=dri",
+    "--filesystem=/proc:ro",
+    "--filesystem=/sys:ro"
+  ],
+  "source-date-epoch" : 1760595773
+}
