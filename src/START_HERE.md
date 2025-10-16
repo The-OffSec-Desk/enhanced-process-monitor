@@ -1,4 +1,4 @@
-# 🚀 ELPM - Start Here!
+# ELPM - Start Here!
 
 Welcome to ELPM (Enhanced Linux Process Monitor) - PyQt6 Desktop Application
 
@@ -30,7 +30,7 @@ python elpm_main.py
 
 ---
 
-## 📚 Documentation Quick Links
+## Documentation Quick Links
 
 **I want to...**
 
@@ -47,7 +47,7 @@ python elpm_main.py
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Not Starting?
 
@@ -96,9 +96,7 @@ After running, you should see:
 
 ---
 
-## 📦 What's Included
-
-- ✅ **Process Monitor**: Table with 22 sample processes
+## What's Included
 - ✅ **Process Details**: Comprehensive information panel
 - ✅ **CPU/Memory Graphs**: Real-time visualization
 - ✅ **Search & Filter**: Find processes instantly
@@ -107,9 +105,9 @@ After running, you should see:
 
 ---
 
-## 🎯 Key Features
+## Key Features
 
-### Working Now ✅
+### Working Now
 - Process table with sorting
 - Detailed process information
 - Real-time graphs (60 seconds)
@@ -117,16 +115,9 @@ After running, you should see:
 - Color-coded status indicators
 - Auto-refresh
 
-### Coming Soon 🚧
-- Process Tree view
-- Network connections
-- Search History
-- Real system monitoring (with psutil)
-- Signal controls (SIGTERM, SIGKILL, etc.)
-
 ---
 
-## 🆘 Need Help?
+## Need Help?
 
 1. **Installation issues?** → [INSTALL.md](INSTALL.md)
 2. **Usage questions?** → [QUICK_START.md](QUICK_START.md)
@@ -140,7 +131,7 @@ python diagnose.py
 
 ---
 
-## 📖 Full Documentation
+## Full Documentation
 
 See **[INDEX.md](INDEX.md)** for complete documentation index with:
 - Installation guides
@@ -154,7 +145,7 @@ See **[INDEX.md](INDEX.md)** for complete documentation index with:
 
 ---
 
-## 🎓 Learning Path
+## Learning Path
 
 ### Beginner (30 min)
 1. Read this file ✓
@@ -191,22 +182,21 @@ See **[INDEX.md](INDEX.md)** for complete documentation index with:
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
 After installation:
 
-1. ✅ **Verify it works** - Run `python diagnose.py`
-2. 📚 **Read documentation** - Start with [QUICK_START.md](QUICK_START.md)
-3. 🎨 **Customize** - Edit `gui/styles.py`
-4. 📊 **Add real data** - Install psutil (see [README_PYQT.md](README_PYQT.md))
-5. 🎯 **Contribute** - Review [FEATURES.md](FEATURES.md) for ideas
+1. **Verify it works** - Run `python diagnose.py`
+2. **Read documentation** - Start with [QUICK_START.md](QUICK_START.md)
+3. **Customize** - Edit `gui/styles.py`
+4. **Contribute** - Review [FEATURES.md](FEATURES.md) for ideas
 
 ---
 
-## 📊 Quick Stats
+## Quick Stats
 
-- **Version**: 1.0.1
-- **Release Date**: 2025-10-08
+- **Version**: 1.0.0
+- **Release Date**: 10-15-2025
 - **Language**: Python 3.8+
 - **Framework**: PyQt6
 - **Default Window**: 1400×800
@@ -216,7 +206,7 @@ After installation:
 
 ---
 
-## ✨ At a Glance
+## At a Glance
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -255,6 +245,6 @@ run_elpm.bat     # Windows
 
 ---
 
-**Last Updated**: 2025-10-08 | **Version**: 1.0.1 | **Status**: ✅ Production Ready
+**Last Updated**: 10-15-2025 | **Version**: 1.0.0 | **Status**: ✅ Production Ready
 
 **Questions?** See [INDEX.md](INDEX.md) for all documentation.

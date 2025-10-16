@@ -3,29 +3,29 @@
 
 # ELPM Documentation Index
 
-## 📚 Complete Documentation Guide
+## Complete Documentation Guide
 
 Welcome to the ELPM (Enhanced Linux Process Monitor) PyQt6 documentation. This index helps you find the right document for your needs.
 
 ---
 
-## 🚀 Getting Started (New Users)
+## Getting Started (New Users)
 
 **Start here if this is your first time:**
 
-1. **[QUICK_START.md](QUICK_START.md)** - Get up and running in 30 seconds
+1. **[QUICK_START.md](src/QUICK_START.md)** - Get up and running in 30 seconds
    - Fastest way to install and run
    - Basic usage instructions
    - Common tasks
    - Keyboard shortcuts
 
-2. **[INSTALL.md](INSTALL.md)** - Detailed installation guide
+2. **[INSTALL.md](src/INSTALL.md)** - Detailed installation guide
    - Step-by-step installation
    - Prerequisites and requirements
    - Troubleshooting common issues
    - Virtual environment setup
 
-3. **[CHECKLIST.md](CHECKLIST.md)** - Verification checklist
+3. **[CHECKLIST.md](src/CHECKLIST.md)** - Verification checklist
    - Pre-installation requirements
    - Installation steps
    - Post-installation verification
@@ -33,18 +33,18 @@ Welcome to the ELPM (Enhanced Linux Process Monitor) PyQt6 documentation. This i
 
 ---
 
-## 📖 Main Documentation (All Users)
+## Main Documentation (All Users)
 
 **Read these for comprehensive information:**
 
-4. **[README_PYQT.md](README_PYQT.md)** - Complete user guide
+4. **[README_PYQT.md](src/README_PYQT.md)** - Complete user guide
    - Full feature documentation
    - Usage instructions
    - Customization guide
    - Development information
    - ~1600 lines of documentation
 
-5. **[README_SUMMARY.md](README_SUMMARY.md)** - Quick overview
+5. **[README_SUMMARY.md](src/README_SUMMARY.md)** - Quick overview
    - Project summary
    - Key features list
    - Quick links to other docs
@@ -53,11 +53,11 @@ Welcome to the ELPM (Enhanced Linux Process Monitor) PyQt6 documentation. This i
 
 ---
 
-## 🔧 Technical Documentation (Developers)
+## Technical Documentation (Developers)
 
 **For developers and contributors:**
 
-6. **[ARCHITECTURE.md](ARCHITECTURE.md)** - System architecture
+6. **[ARCHITECTURE.md](src/ARCHITECTURE.md)** - System architecture
    - Application structure diagrams
    - Class hierarchy
    - Data flow diagrams
@@ -65,21 +65,21 @@ Welcome to the ELPM (Enhanced Linux Process Monitor) PyQt6 documentation. This i
    - Memory layout
    - Performance optimization points
 
-7. **[FEATURES.md](FEATURES.md)** - Feature implementation status
+7. **[FEATURES.md](src/FEATURES.md)** - Feature implementation status
    - Fully implemented features ✅
    - Partially implemented features ⚠️
    - Not implemented features ❌
    - Platform-specific features
    - Integration opportunities
 
-8. **[CHANGELOG.md](CHANGELOG.md)** - Version history
+8. **[CHANGELOG.md](src/CHANGELOG.md)** - Version history
    - Bug fixes
    - New features
    - Known limitations
    - Future enhancements
    - Migration guide
 
-9. **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Problem resolution
+9. **[TROUBLESHOOTING.md](src/TROUBLESHOOTING.md)** - Problem resolution
    - Common errors and fixes
    - AttributeError solutions
    - Import error solutions
@@ -88,33 +88,33 @@ Welcome to the ELPM (Enhanced Linux Process Monitor) PyQt6 documentation. This i
 
 ---
 
-## 📋 Quick Reference
+## Quick Reference
 
 **Quick answers to common questions:**
 
 ### Installation
-- **How to install?** → [INSTALL.md](INSTALL.md) or [QUICK_START.md](QUICK_START.md)
-- **Having issues?** → [INSTALL.md](INSTALL.md) § Troubleshooting
-- **First time setup?** → [CHECKLIST.md](CHECKLIST.md)
+- **How to install?** → [INSTALL.md](src/INSTALL.md) or [QUICK_START.md](src/QUICK_START.md)
+- **Having issues?** → [INSTALL.md](src/INSTALL.md) § Troubleshooting
+- **First time setup?** → [CHECKLIST.md](src/CHECKLIST.md)
 
 ### Usage
-- **How to use?** → [QUICK_START.md](QUICK_START.md) § Basic Usage
-- **Keyboard shortcuts?** → [QUICK_START.md](QUICK_START.md) § Keyboard Shortcuts
-- **What features work?** → [FEATURES.md](FEATURES.md)
+- **How to use?** → [QUICK_START.md](src/QUICK_START.md) § Basic Usage
+- **Keyboard shortcuts?** → [QUICK_START.md](src/QUICK_START.md) § Keyboard Shortcuts
+- **What features work?** → [FEATURES.md](src/FEATURES.md)
 
 ### Development
-- **How is it structured?** → [ARCHITECTURE.md](ARCHITECTURE.md)
-- **Want to customize?** → [README_PYQT.md](README_PYQT.md) § Customization
-- **Add real monitoring?** → [README_PYQT.md](README_PYQT.md) § Adding Real Process Data
+- **How is it structured?** → [ARCHITECTURE.md](src/ARCHITECTURE.md)
+- **Want to customize?** → [README_PYQT.md](src/README_PYQT.md) § Customization
+- **Add real monitoring?** → [README_PYQT.md](src/README_PYQT.md) § Adding Real Process Data
 
 ### Troubleshooting
-- **Won't start?** → [INSTALL.md](INSTALL.md) § Troubleshooting
-- **Import errors?** → [INSTALL.md](INSTALL.md) § Issue: "ModuleNotFoundError"
-- **Display issues?** → [INSTALL.md](INSTALL.md) § Issue: DPI scaling
+- **Won't start?** → [INSTALL.md](src/INSTALL.md) § Troubleshooting
+- **Import errors?** → [INSTALL.md](src/INSTALL.md) § Issue: "ModuleNotFoundError"
+- **Display issues?** → [INSTALL.md](src/INSTALL.md) § Issue: DPI scaling
 
 ---
 
-## 📂 File Organization
+## File Organization
 
 ### Source Code Files
 ```
@@ -156,41 +156,41 @@ docs/ (or src/)
 
 ---
 
-## 🎯 Documentation by Task
+## Documentation by Task
 
 ### "I want to install ELPM"
-1. Read: [QUICK_START.md](QUICK_START.md) § Installation
-2. Or: [INSTALL.md](INSTALL.md) for detailed steps
-3. Verify: [CHECKLIST.md](CHECKLIST.md)
+1. Read: [QUICK_START.md](src/QUICK_START.md) § Installation
+2. Or: [INSTALL.md](src/INSTALL.md) for detailed steps
+3. Verify: [CHECKLIST.md](src/CHECKLIST.md)
 
 ### "I want to learn how to use ELPM"
-1. Read: [QUICK_START.md](QUICK_START.md) § Basic Usage
-2. Then: [README_PYQT.md](README_PYQT.md) § Usage
-3. Reference: [FEATURES.md](FEATURES.md) for what works
+1. Read: [QUICK_START.md](src/QUICK_START.md) § Basic Usage
+2. Then: [README_PYQT.md](src/README_PYQT.md) § Usage
+3. Reference: [FEATURES.md](src/FEATURES.md) for what works
 
 ### "I want to customize ELPM"
-1. Read: [README_PYQT.md](README_PYQT.md) § Customization
-2. Review: [ARCHITECTURE.md](ARCHITECTURE.md) § Customization Points
+1. Read: [README_PYQT.md](src/README_PYQT.md) § Customization
+2. Review: [ARCHITECTURE.md](src/ARCHITECTURE.md) § Customization Points
 3. Modify: `gui/styles.py` for theme changes
 
 ### "I want to add real process monitoring"
-1. Read: [README_PYQT.md](README_PYQT.md) § Adding Real Process Data
-2. Install: `pip install psutil`
+1. Read: [README_PYQT.md](src/README_PYQT.md) § Adding Real Process Data
+2. Install: `pip install Post-installation`
 3. Modify: `models/process_model.py`
 
 ### "I'm having problems"
-1. Check: [INSTALL.md](INSTALL.md) § Troubleshooting
+1. Check: [INSTALL.md](src/INSTALL.md) § Troubleshooting
 2. Run: `python test_imports.py`
-3. Verify: [CHECKLIST.md](CHECKLIST.md)
+3. Verify: [CHECKLIST.md](src/CHECKLIST.md)
 
 ### "I want to contribute/develop"
-1. Read: [ARCHITECTURE.md](ARCHITECTURE.md)
-2. Review: [FEATURES.md](FEATURES.md) for what needs work
-3. Check: [CHANGELOG.md](CHANGELOG.md) for recent changes
+1. Read: [ARCHITECTURE.md](src/ARCHITECTURE.md)
+2. Review: [FEATURES.md](src/FEATURES.md) for what needs work
+3. Check: [CHANGELOG.md](src/CHANGELOG.md) for recent changes
 
 ---
 
-## 📊 Documentation Statistics
+## Documentation Statistics
 
 | Document | Lines | Words | Purpose | Audience |
 |----------|-------|-------|---------|----------|
@@ -208,61 +208,61 @@ docs/ (or src/)
 
 ---
 
-## 🔍 Search Guide
+## Search Guide
 
 ### Find information about...
 
 **Colors and Theme:**
-- Primary: [README_PYQT.md](README_PYQT.md) § Color Coding
-- Technical: [ARCHITECTURE.md](ARCHITECTURE.md) § Customization Points
+- Primary: [README_PYQT.md](src/README_PYQT.md) § Color Coding
+- Technical: [ARCHITECTURE.md](src/ARCHITECTURE.md) § Customization Points
 - Implementation: `gui/styles.py` (source code)
 
 **Process Table:**
-- Usage: [QUICK_START.md](QUICK_START.md) § View Processes
-- Features: [FEATURES.md](FEATURES.md) § Processes View
-- Structure: [ARCHITECTURE.md](ARCHITECTURE.md) § Processes View Layout
+- Usage: [QUICK_START.md](src/QUICK_START.md) § View Processes
+- Features: [FEATURES.md](src/FEATURES.md) § Processes View
+- Structure: [ARCHITECTURE.md](src/ARCHITECTURE.md) § Processes View Layout
 
 **Graphs:**
-- Usage: [QUICK_START.md](QUICK_START.md) § Monitor Resources
-- Features: [FEATURES.md](FEATURES.md) § Graphs View
-- Implementation: [ARCHITECTURE.md](ARCHITECTURE.md) § Graphs View Layout
+- Usage: [QUICK_START.md](src/QUICK_START.md) § Monitor Resources
+- Features: [FEATURES.md](src/FEATURES.md) § Graphs View
+- Implementation: [ARCHITECTURE.md](src/ARCHITECTURE.md) § Graphs View Layout
 
 **Installation Issues:**
-- Quick fix: [QUICK_START.md](QUICK_START.md) § Troubleshooting
-- Detailed: [INSTALL.md](INSTALL.md) § Troubleshooting
-- Check: Run `test_imports.py`
+- Quick fix: [QUICK_START.md](src/QUICK_START.md) § Troubleshooting
+- Detailed: [INSTALL.md](src/INSTALL.md) § Troubleshooting
+- Check: Run `test_imports.python`
 
 **Data Models:**
-- Overview: [README_PYQT.md](README_PYQT.md) § Project Structure
-- Details: [ARCHITECTURE.md](ARCHITECTURE.md) § Data Flow
+- Overview: [README_PYQT.md](src/README_PYQT.md) § Project Structure
+- Details: [ARCHITECTURE.md](src/ARCHITECTURE.md) § Data Flow
 - Code: `models/process_model.py`
 
 **Performance:**
-- Metrics: [README_SUMMARY.md](README_SUMMARY.md) § Performance Metrics
-- Optimization: [ARCHITECTURE.md](ARCHITECTURE.md) § Performance Optimization Points
+- Metrics: [README_SUMMARY.md](src/README_SUMMARY.md) § Performance Metrics
+- Optimization: [ARCHITECTURE.md](src/ARCHITECTURE.md) § Performance Optimization Points
 
 ---
 
-## 🎓 Learning Paths
+## Learning Paths
 
 ### Path 1: End User (30 minutes)
-1. [QUICK_START.md](QUICK_START.md) - 5 min
+1. [QUICK_START.md](src/QUICK_START.md) - 5 min
 2. Run application - 2 min
 3. Explore features - 15 min
-4. [README_PYQT.md](README_PYQT.md) § Usage - 8 min
+4. [README_PYQT.md](src/README_PYQT.md) § Usage - 8 min
 
 ### Path 2: Power User (2 hours)
-1. [INSTALL.md](INSTALL.md) - 20 min
-2. [README_PYQT.md](README_PYQT.md) - 40 min
-3. [FEATURES.md](FEATURES.md) - 30 min
+1. [INSTALL.md](src/INSTALL.md) - 20 min
+2. [README_PYQT.md](src/README_PYQT.md) - 40 min
+3. [FEATURES.md](src/FEATURES.md) - 30 min
 4. Experiment with customization - 30 min
 
 ### Path 3: Developer (4 hours)
-1. [README_SUMMARY.md](README_SUMMARY.md) - 15 min
-2. [ARCHITECTURE.md](ARCHITECTURE.md) - 90 min
-3. [FEATURES.md](FEATURES.md) - 30 min
-4. Review source code - 90 min
-5. [CHANGELOG.md](CHANGELOG.md) - 15 min
+1. [README_SUMMARY.md](src/README_SUMMARY.md) - 15 min
+2. [ARCHITECTURE.md](src/ARCHITECTURE.md) - 90 min
+3. [FEATURES.md](src/FEATURES.md) - 30 min
+4. Review source Cross-references - 90 min
+5. [CHANGELOG.md](src/CHANGELOG.md) - 15 min
 
 ### Path 4: Contributor (8 hours)
 1. All documents above - 4 hours
@@ -272,16 +272,16 @@ docs/ (or src/)
 
 ---
 
-## 🆘 Support Resources
+## Support Resources
 
 ### Documentation
-- **General Help**: [README_PYQT.md](README_PYQT.md)
-- **Installation Help**: [INSTALL.md](INSTALL.md)
-- **Quick Help**: [QUICK_START.md](QUICK_START.md)
+- **General Help**: [README_PYQT.md](src/README_PYQT.md)
+- **Installation Help**: [INSTALL.md](src/INSTALL.md)
+- **Quick Help**: [QUICK_START.md](src/QUICK_START.md)
 
 ### Testing
 - **Verify Setup**: `python test_imports.py`
-- **Check Installation**: [CHECKLIST.md](CHECKLIST.md)
+- **Check Installation**: [CHECKLIST.md](src/CHECKLIST.md)
 
 ### Source Code
 - **Main File**: `elpm_main.py`
@@ -290,7 +290,7 @@ docs/ (or src/)
 
 ---
 
-## 📝 Document Maintenance
+## Document Maintenance
 
 **Last Updated**: 2025-10-08
 **Version**: 1.0.1
@@ -306,7 +306,7 @@ docs/ (or src/)
 
 ---
 
-## 🎯 Recommended Reading Order
+## Recommended Reading Order
 
 ### First Time Users
 1. INDEX.md (you are here) ← **START**
@@ -334,4 +334,4 @@ docs/ (or src/)
 
 **Happy monitoring! 🚀**
 
-For immediate help, start with [QUICK_START.md](QUICK_START.md)
+For immediate help, start with [QUICK_START.md](src/QUICK_START.md)

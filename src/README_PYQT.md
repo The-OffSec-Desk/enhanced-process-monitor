@@ -122,7 +122,7 @@ The application window consists of:
 
 - **Process Table**: Displays all running processes with sortable columns
 - **Details Panel**: Shows comprehensive information about the selected process
-- **Filters**: 
+- **Filters**:
   - Sort by CPU%, Memory%, PID, or Name
   - Filter by root user only
   - Hide kernel threads
@@ -158,31 +158,8 @@ Use the search bar in the top bar to filter processes by:
 
 Edit `gui/styles.py` to customize the application's appearance. The file contains all CSS-like stylesheet definitions.
 
-### Adding Real Process Data
 
-Replace the sample data in `models/process_model.py` with actual system process data using libraries like `psutil`:
-
-```python
-import psutil
-
-def get_real_processes():
-    processes = []
-    for proc in psutil.process_iter(['pid', 'name', 'username', 'cpu_percent', 'memory_percent']):
-        try:
-            pinfo = proc.info
-            processes.append(ProcessModel(
-                pid=pinfo['pid'],
-                user=pinfo['username'],
-                cpu=pinfo['cpu_percent'],
-                mem=pinfo['memory_percent'],
-                # ... other fields
-            ))
-        except (psutil.NoSuchProcess, psutil.AccessDenied):
-            pass
-    return processes
-```
-
-### Adding Signal Functionality
+### Adding Signal Functionality (In case you don't see any)
 
 Connect the signal buttons in `gui/views/processes_view.py` to actual signal sending:
 
@@ -212,25 +189,6 @@ def send_signal(self, sig):
 - **Custom widgets**: Add to `gui/widgets/`
 - **Data models**: Add to `models/`
 - **Utilities**: Create a new `utils/` directory
-
-## Known Limitations
-
-- Currently uses sample/mock data for demonstration
-- Signal sending functionality is not yet connected to the OS
-- Process Tree, Network, and Search History views are placeholders
-- No actual system monitoring (requires `psutil` or similar library)
-
-## Future Enhancements
-
-- [ ] Integrate with real system process data using `psutil`
-- [ ] Implement Process Tree visualization
-- [ ] Add Network connections monitoring
-- [ ] Implement Search History functionality
-- [ ] Add process filtering and advanced search
-- [ ] Export functionality (CSV, JSON)
-- [ ] Settings panel for customization
-- [ ] Performance optimizations for large process lists
-- [ ] Cross-platform compatibility improvements
 
 ## License
 

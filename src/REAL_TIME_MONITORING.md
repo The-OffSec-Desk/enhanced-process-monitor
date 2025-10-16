@@ -6,7 +6,6 @@ ELPM includes **full real-time process monitoring** using `psutil`. The applicat
 
 ---
 
-## ✨ What's New
 
 ### Real Process Monitoring
 - ✅ **Live Process Data**: Displays actual running processes from your system
@@ -73,7 +72,7 @@ Both are listed in `requirements.txt` and automatically installed by launcher sc
 
 ---
 
-## 📊 Features in Detail
+## Features in Detail
 
 ### Process Table
 
@@ -189,7 +188,7 @@ Bottom status bar shows (updates every 1 second):
 
 ---
 
-## 🔧 Technical Details
+## Technical Details
 
 ### Process Data Fetching
 
@@ -227,7 +226,7 @@ subprocess.run(["sudo", "kill", f"-{signal}", str(pid)])
 
 ---
 
-## 🎯 Usage Examples
+## Usage Examples
 
 ### Find High CPU Processes
 
@@ -316,7 +315,7 @@ sudo python elpm_main.py
 
 ---
 
-## 📝 Configuration
+## Configuration
 
 ### Change Refresh Rate
 
@@ -341,20 +340,6 @@ self.sigterm_btn.setStyleSheet("""
     }
 """)
 ```
-
----
-
-## 🔄 Comparison: Before vs After
-
-| Feature        | Before (v1.0.1)      | After (v1.1.0)        |
-|----------------|----------------------|-----------------------|
-| Process Data   | 22 sample processes  | Real system processes |
-| CPU/Memory     | Simulated sine waves | Real psutil data      |
-| Signal Buttons | UI only              | Fully functional      |
-| CSV Export     | Not implemented      | Fully functional      |
-| Refresh        | Manual only          | Auto + Manual         |
-| Process Count  | Fixed at 22          | Actual count          |
-| Permissions    | N/A                  | Handles elevation     |
 
 ---
 
@@ -399,23 +384,4 @@ os.kill(pid, signal.SIGTERM)
 export_csv(filename, processes)
 ```
 
----
 
-## 🎉 Summary
-
-ELPM is now a **fully functional** real-time process monitor with:
-- ✅ Real process monitoring
-- ✅ Working signal controls
-- ✅ CSV export
-- ✅ Real-time graphs
-- ✅ Auto-refresh
-- ✅ Permission handling
-- ✅ Professional UI with colored buttons
-
-The application is ready for actual system monitoring tasks!
-
----
-
-**Version**: 1.1.0
-**Last Updated**: 2025-10-08
-**Dependencies**: PyQt6 6.5.0+, psutil 5.9.0+

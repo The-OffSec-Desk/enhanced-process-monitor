@@ -200,29 +200,6 @@ deactivate
 - **Disk Space**: 200 MB
 - **Display**: 1400×800 or higher resolution
 
-## Optional: Adding Real System Monitoring
-
-To add real system process monitoring capabilities:
-
-```bash
-# Install psutil for actual process data
-pip3 install psutil
-
-# Then modify models/process_model.py to use real data
-# See README_PYQT.md for implementation examples
-```
-
-## Development Setup
-
-For development with auto-reload and debugging:
-
-```bash
-# Install development dependencies
-pip3 install PyQt6 psutil black pylint
-
-# Run with Python debugger
-python3 -m pdb elpm_main.py
-```
 
 ## Getting Help
 
@@ -246,5 +223,5 @@ After successful installation:
 
 ---
 
-**Version**: 1.0  
-**Last Updated**: 2025-10-08
+**Version**: 1.0.0
+**Last Updated**: 10-15-2025

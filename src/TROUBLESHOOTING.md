@@ -1,42 +1,11 @@
 # ELPM Troubleshooting Guide
 
-## 🔧 Common Issues and Solutions
+## Common Issues and Solutions
 
 This guide covers common problems and their solutions. If you're experiencing an issue, find it below and follow the solution steps.
 
 ---
 
-## ❌ AttributeError: 'ProcessesView' object has no attribute 'process_table'
-
-### Symptom
-```
-AttributeError: 'ProcessesView' object has no attribute 'process_table'
-```
-
-### Status
-✅ **FIXED in v1.0.1**
-
-### Solution
-Update to the latest version of the code. This bug has been fixed.
-
-**What was the problem?**
-- The `populate_table()` method was being called before `self.process_table` was created
-- This happened because `create_process_table()` called `populate_table()` at the end, but the table hadn't been assigned to `self.process_table` yet
-
-**How it was fixed:**
-- Moved `populate_table()` call to after `self.process_table` assignment
-- Removed the premature call from inside `create_process_table()`
-
-### Verify Fix
-```bash
-# Check your version
-grep "def create_process_table" gui/views/processes_view.py -A 20
-
-# Should NOT see populate_table() at the end of create_process_table
-# Should see it called after: self.process_table = self.create_process_table()
-```
-
----
 
 ## ❌ ModuleNotFoundError: No module named 'PyQt6'
 
@@ -273,7 +242,7 @@ python --version
 - Right panel shows no details
 
 ### Solution
-1. Check if `populate_table()` is being called:
+Check if `populate_table()` is being called:
 ```bash
 # Add debug print in gui/views/processes_view.py
 def populate_table(self):
@@ -281,11 +250,6 @@ def populate_table(self):
     # ... rest of code
 ```
 
-2. Verify sample data exists:
-```bash
-python -c "from models.process_model import get_sample_processes; print(len(get_sample_processes()))"
-# Should print: 22
-```
 
 ---
 
@@ -413,7 +377,7 @@ self.setStyleSheet(MAIN_STYLES)  # Reapply
 
 ---
 
-## 🔍 Diagnostic Commands
+## Diagnostic Commands
 
 ### Full System Check
 ```bash
@@ -446,7 +410,7 @@ echo $PYTHONPATH
 
 ---
 
-## 📞 Getting More Help
+## Getting More Help
 
 If none of these solutions work:
 
@@ -479,25 +443,9 @@ dir /s     # Windows
 
 ---
 
-## 🐛 Known Issues (v1.0.1)
+##  Known Issues (v1.0.1)
 
-### Not Bugs (Expected Behavior)
-- ✅ Signal buttons don't work → **Feature not implemented yet**
-- ✅ Export CSV doesn't work → **Feature not implemented yet**
-- ✅ Process Tree is empty → **Tab not implemented yet**
-- ✅ Network tab is empty → **Tab not implemented yet**
-- ✅ Search History is empty → **Tab not implemented yet**
-- ✅ Data is fake/sample → **Use psutil for real data**
-
-### Fixed in v1.0.1
-- ✅ AttributeError: process_table → **FIXED**
-
-### Open Issues
-- ⚠️ None currently
-
----
-
-## 🔄 Recovery Procedures
+### Recovery Procedures
 
 ### Complete Reinstall
 ```bash
@@ -525,8 +473,8 @@ python elpm_main.py
 
 ---
 
-**Last Updated**: 2025-10-08  
-**Version**: 1.0.1  
+**Last Updated**: 10-15-2025
+**Version**: 1.0.0
 **Status**: All major issues resolved
 
 **Still having issues?** Check [INSTALL.md](INSTALL.md) or run `python test_imports.py`

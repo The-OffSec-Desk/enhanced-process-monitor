@@ -359,16 +359,6 @@ gui/main_window.py
 - **.sh/.bat**: Shell scripts (launchers)
 - **__init__.py**: Python package markers
 - **test_*.py**: Test/verification scripts
-
-## 🔢 Size Summary
-
-```
-Source Code:      ~1,900 lines
-Documentation:   ~30,200 words
-Total Files:           ~25
-Python Packages:        5 (models, gui, gui/widgets, gui/views, root)
-Documentation:         12 files
-Utility Scripts:        4 (test, diagnose, launchers)
 ```
 
 ## 📍 Important Locations
@@ -387,6 +377,5 @@ Utility Scripts:        4 (test, diagnose, launchers)
 
 ---
 
-**Last Updated**: 2025-10-08
-**Version**: 1.0.1
-**Total Project Size**: ~2,000 lines code + 30,000 words docs
+**Last Updated**: 10-15-2025
+**Version**: 1.0.0

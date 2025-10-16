@@ -65,7 +65,7 @@ The signal control buttons now have distinct colors to help users quickly identi
 
 ```
 ┌────────────────────────────┐
-│   ⏸ SIGSTOP (19)          │
+│   ⏸ SIGSTOP (19)           │
 │   [Yellow Background]      │
 └────────────────────────────┘
 ```

@@ -1,18 +1,18 @@
 # ELPM Features & Implementation Status
 
-## ✅ Fully Implemented Features
+## Fully Implemented Features
 
 ### User Interface
-- ✅ **Dark Theme**: Complete dark mode optimized for extended use
-- ✅ **1400×800 Window**: Default window size with resize capability
-- ✅ **Gradient Logo**: Cyan-to-purple gradient branding
-- ✅ **Tab Navigation**: Five tabs (Processes, Process Tree, Network, Graphs, Search History)
-- ✅ **Top Bar**: Branding, search, refresh, settings, minimize, close buttons
-- ✅ **Status Bar**: Real-time CPU, Memory, Disk, process count, time display
-- ✅ **Responsive Layout**: Adapts to window resizing
+- **Dark Theme**: Complete dark mode optimized for extended use
+- **1400×800 Window**: Default window size with resize capability
+- **Gradient Logo**: Cyan-to-purple gradient branding
+- **Tab Navigation**: Five tabs (Processes, Process Tree, Network, Graphs, Search History)
+- **Top Bar**: Branding, search, refresh, settings, minimize, close buttons
+- **Status Bar**: Real-time CPU, Memory, Disk, process count, time display
+- **Responsive Layout**: Adapts to window resizing
 
 ### Processes View
-- ✅ **Process Table**: Full table with 9 columns
+  - **Process Table**: Full table with 9 columns
   - PID (Process ID)
   - User (color-coded for root)
   - CPU% (color-coded by usage level)
@@ -22,47 +22,46 @@
   - Status (color-coded badges)
   - Threads count
   - Command (truncated for display)
-- ✅ **Sorting**: By CPU%, Memory%, PID, or Name
-- ✅ **Filtering Options**:
+  - **Sorting**: By CPU%, Memory%, PID, or Name
+  - **Filtering Options**:
   - Root processes only
   - Hide kernel threads
   - Auto-refresh toggle
-- ✅ **Row Selection**: Click to select process
-- ✅ **Alternating Row Colors**: Enhanced readability
-- ✅ **Hover Effects**: Visual feedback on hover
+  - **Row Selection**: Click to select process
+  - **Alternating Row Colors**: Enhanced readability
+  - **Hover Effects**: Visual feedback on hover
 
 ### Process Details Panel
-- ✅ **Process Information Section**:
+  - **Process Information Section**:
   - PID with clickable parent PID
   - Process name extracted from command
   - Status badge (color-coded)
   - User (highlighted for root)
   - Parent PID (clickable link)
-- ✅ **Resource Usage Section**:
+  - **Resource Usage Section**:
   - CPU% with color-coded progress bar
   - Memory% with progress bar
   - Memory RSS (formatted bytes)
   - Memory VSZ (formatted bytes)
   - Thread count
-- ✅ **Timing Section**:
+  - **Timing Section**:
   - Process creation timestamp
   - CPU time (user and system)
-- ✅ **Command Section**:
+  - **Command Section**:
   - Full command line in monospace
   - Dark background for code display
-- ✅ **Working Directory Section**:
+  - **Working Directory Section**:
   - Current working directory path
-- ✅ **Files & Connections Section**:
+  - **Files & Connections Section**:
   - Open files count
   - Network connections count
-- ✅ **Color-Coded Section Headers**: Different colors for each section
+  - **Color-Coded Section Headers**: Different colors for each section
 
 ### Signal Controls
 - ✅ **SIGTERM Button** (Green): Graceful termination
 - ✅ **SIGKILL Button** (Red): Force kill
 - ✅ **SIGSTOP Button** (Yellow): Pause process
 - ✅ **SIGCONT Button** (Cyan): Resume process
-- ⚠️ **Note**: Buttons are UI-only, not functional yet
 
 ### Graphs View
 - ✅ **CPU Usage Graph**:
@@ -127,9 +126,6 @@
 
 ## ⚠️ Partially Implemented Features
 
-### Export Functionality
-- ✅ Export CSV button present
-- ❌ Actual export functionality not implemented
 
 ### Window Controls
 - ✅ Minimize, Close buttons present
@@ -139,42 +135,12 @@
 - ✅ Settings button present
 - ❌ Settings dialog not implemented
 
-## ❌ Not Yet Implemented
-
-### Process Tree View
-- Tab exists but shows placeholder
-- Needs parent-child relationship visualization
-- Should show process hierarchy
-
-### Network Connections View
-- Tab exists but shows placeholder
-- Needs network socket information
-- Should show active connections per process
-
 ### Search History View
 - Tab exists but shows placeholder
 - Needs search query tracking
-- Should show recent searches with timestamps
-
-### Real System Monitoring
-- Currently uses mock/sample data
-- Needs `psutil` integration for real processes
-- Would require:
-  ```python
-  import psutil
-  # Implementation to fetch real process data
-  ```
-
-### Signal Sending
-- Buttons present but non-functional
-- Needs OS signal integration:
-  ```python
-  import os, signal
-  os.kill(pid, signal.SIGTERM)
-  ```
+- Should show recent searches with timestamps  ```
 
 ### Advanced Features (Future)
-- Process grouping by application
 - Resource usage alerts
 - Process comparison
 - Historical data export
@@ -182,8 +148,6 @@
 - CPU affinity management
 - Environment variable viewing
 - Open file listing
-- Network connection details
-- Process dependency graph
 
 ## Platform-Specific Features
 
@@ -192,42 +156,13 @@
 - ✅ **Windows**: Fully supported
 - ✅ **macOS**: Fully supported
 - ⚠️ **Note**: Some features (like signals) may behave differently per platform
+- ⚠️ **Note**: Some styles (like details background and/or username color) may behave differently per platform
 
 ### Platform-Specific Implementations Needed
 - ❌ Linux-specific process details (cgroups, namespaces)
 - ❌ Windows-specific process details (handles, modules)
 - ❌ macOS-specific process details (code signing, sandbox)
 
-## Integration Opportunities
-
-### Real Monitoring (psutil)
-```bash
-pip install psutil
-```
-Benefits:
-- Real process data
-- CPU and memory percentages
-- Process creation time
-- Open files and connections
-- Parent-child relationships
-
-### System Information
-```bash
-pip install py-cpuinfo
-```
-Benefits:
-- Detailed CPU information
-- Architecture details
-- Cache sizes
-
-### Network Analysis
-```bash
-pip install scapy
-```
-Benefits:
-- Deep packet inspection
-- Network traffic analysis
-- Connection monitoring
 
 ## Performance Characteristics
 
@@ -243,16 +178,9 @@ Benefits:
 - ✅ Graph data limited to 60 points
 - ✅ Cached font objects
 - ✅ Efficient signal connections
-- ✅ Lazy loading of details panel
 
-### Future Optimizations
-- Virtual scrolling for large process lists
-- Incremental table updates
-- Background thread for data collection
-- Caching of process information
-- Debounced search filtering
 
 ---
 
-**Last Updated**: 2025-10-08  
-**Version**: 1.0.1
+**Last Updated**: 10-15-2025
+**Version**: 1.0.0

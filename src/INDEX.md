@@ -1,12 +1,12 @@
 # ELPM Documentation Index
 
-## 📚 Complete Documentation Guide
+## Complete Documentation Guide
 
 Welcome to the ELPM (Enhanced Linux Process Monitor) PyQt6 documentation. This index helps you find the right document for your needs.
 
 ---
 
-## 🚀 Getting Started (New Users)
+## Getting Started (New Users)
 
 **Start here if this is your first time:**
 
@@ -30,7 +30,7 @@ Welcome to the ELPM (Enhanced Linux Process Monitor) PyQt6 documentation. This i
 
 ---
 
-## 📖 Main Documentation (All Users)
+## Main Documentation (All Users)
 
 **Read these for comprehensive information:**
 
@@ -50,7 +50,7 @@ Welcome to the ELPM (Enhanced Linux Process Monitor) PyQt6 documentation. This i
 
 ---
 
-## 🔧 Technical Documentation (Developers)
+## Technical Documentation (Developers)
 
 **For developers and contributors:**
 
@@ -153,7 +153,7 @@ docs/ (or src/)
 
 ---
 
-## 🎯 Documentation by Task
+## Documentation by Task
 
 ### "I want to install ELPM"
 1. Read: [QUICK_START.md](QUICK_START.md) § Installation
@@ -170,10 +170,6 @@ docs/ (or src/)
 2. Review: [ARCHITECTURE.md](ARCHITECTURE.md) § Customization Points
 3. Modify: `gui/styles.py` for theme changes
 
-### "I want to add real process monitoring"
-1. Read: [README_PYQT.md](README_PYQT.md) § Adding Real Process Data
-2. Install: `pip install psutil`
-3. Modify: `models/process_model.py`
 
 ### "I'm having problems"
 1. Check: [INSTALL.md](INSTALL.md) § Troubleshooting
@@ -187,7 +183,7 @@ docs/ (or src/)
 
 ---
 
-## 📊 Documentation Statistics
+## Documentation Statistics
 
 | Document | Lines | Words | Purpose | Audience |
 |----------|-------|-------|---------|----------|
@@ -240,7 +236,7 @@ docs/ (or src/)
 
 ---
 
-## 🎓 Learning Paths
+## Learning Paths
 
 ### Path 1: End User (30 minutes)
 1. [QUICK_START.md](QUICK_START.md) - 5 min
@@ -261,15 +257,10 @@ docs/ (or src/)
 4. Review source code - 90 min
 5. [CHANGELOG.md](CHANGELOG.md) - 15 min
 
-### Path 4: Contributor (8 hours)
-1. All documents above - 4 hours
-2. Set up development environment - 1 hour
-3. Add psutil integration - 2 hours
-4. Test and document changes - 1 hour
 
 ---
 
-## 🆘 Support Resources
+## Support Resources
 
 ### Documentation
 - **General Help**: [README_PYQT.md](README_PYQT.md)
@@ -289,17 +280,8 @@ docs/ (or src/)
 
 ## 📝 Document Maintenance
 
-**Last Updated**: 2025-10-08  
-**Version**: 1.0.1  
-**Total Pages**: 9 documents  
-**Total Size**: ~24,000 words  
-
-### Document Status
-- ✅ All documents current
-- ✅ Cross-references verified
-- ✅ Code examples tested
-- ✅ Screenshots available (in original docs)
-- ✅ Links functional
+**Last Updated**: 10-15-2025
+**Version**: 1.0.0
 
 ---
 
@@ -329,6 +311,6 @@ docs/ (or src/)
 
 ---
 
-**Happy monitoring! 🚀**
+**Happy monitoring! **
 
 For immediate help, start with [QUICK_START.md](QUICK_START.md)

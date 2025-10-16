@@ -116,72 +116,6 @@ Click on "Processes" tab and verify:
 - [ ] Open files count
 - [ ] Network connections count
 
-### Graphs Tab Verification
-Click on "Graphs" tab and verify:
-
-**CPU Graph:**
-- [ ] Title: "CPU Usage History (60 seconds)"
-- [ ] Current CPU percentage displayed (top right)
-- [ ] Graph with cyan line visible
-- [ ] Grid lines visible
-- [ ] X-axis labels (-60s to 0s)
-- [ ] Y-axis labels (0% to 100%)
-- [ ] Graph updates every 2 seconds
-
-**Memory Graph:**
-- [ ] Title: "Memory Usage History (60 seconds)"
-- [ ] Current memory percentage and GB display
-- [ ] Graph with yellow line visible
-- [ ] Grid lines visible
-- [ ] Graph updates every 2 seconds
-
-**Statistics Panel:**
-- [ ] CPU stats: Avg, Max, Min percentages
-- [ ] Memory stats: Avg, Max, Min percentages
-- [ ] Color-coded values (cyan for avg, red for max, green for min)
-
-### Other Tabs Verification
-- [ ] "Process Tree" tab shows placeholder with tree icon
-- [ ] "Network" tab shows placeholder with network icon
-- [ ] "Search History" tab shows placeholder with clock icon
-- [ ] All placeholders say "Coming soon"
-
-### Functionality Verification
-
-**Search Functionality:**
-- [ ] Click search bar or press Ctrl+F
-- [ ] Type "chrome" or "root"
-- [ ] Process table filters automatically
-- [ ] Clear button (X) appears in search bar
-- [ ] Clicking X clears search and shows all processes
-
-**Sorting:**
-- [ ] Click "Sort by" dropdown
-- [ ] Select "CPU%"
-- [ ] Table re-sorts by CPU (highest first)
-- [ ] Try other sort options (Memory%, PID, Name)
-- [ ] Each sort works correctly
-
-**Filtering:**
-- [ ] Check "Root only" checkbox
-- [ ] Table shows only root user processes
-- [ ] Uncheck - all processes return
-- [ ] Check "Auto-refresh"
-- [ ] Notice table updates every 2 seconds
-- [ ] Uncheck - updates stop
-
-**Process Selection:**
-- [ ] Click different rows in process table
-- [ ] Details panel updates for each selection
-- [ ] Selected row remains highlighted
-- [ ] Information matches selected process
-
-**Real-time Updates:**
-- [ ] Watch graphs for 10 seconds
-- [ ] Both graphs animate/update
-- [ ] Status bar time updates every second
-- [ ] CPU/Memory percentages change
-- [ ] Process table updates every 2 seconds (if auto-refresh on)
 
 ## Troubleshooting Checklist
 
@@ -216,9 +150,6 @@ Normal operation should show:
 - [ ] No lag when clicking tabs
 - [ ] Instant row selection response
 - [ ] Graphs update smoothly without flicker
-- [ ] Search filters instantly (<100ms)
-- [ ] CPU usage < 10% when running
-- [ ] Memory usage < 150 MB
 - [ ] No freezing or hanging
 
 ## Feature Completeness Checklist
@@ -235,18 +166,6 @@ Normal operation should show:
 - [ ] Status bar updates
 - [ ] Time display updates
 
-### UI-Only Features ⚠️
-(Present but not functional)
-- [ ] Signal control buttons (visual only)
-- [ ] Export CSV button (not implemented)
-- [ ] Settings button (no dialog)
-- [ ] Window minimize/close (not connected)
-
-### Not Implemented ❌
-- [ ] Process Tree view (placeholder)
-- [ ] Network view (placeholder)
-- [ ] Search History view (placeholder)
-- [ ] Real system process data (uses sample data)
 
 ## Next Steps Checklist
 
@@ -262,19 +181,16 @@ After successful installation:
 **Advanced Usage:**
 - [ ] Read README_PYQT.md
 - [ ] Understand color coding
-- [ ] Learn keyboard shortcuts
 - [ ] Review FEATURES.md for capabilities
 
 **Customization:**
 - [ ] Review gui/styles.py for theming
 - [ ] Check ARCHITECTURE.md for structure
-- [ ] Consider adding psutil for real data
 - [ ] Explore models/process_model.py
 
 **Development:**
 - [ ] Set up Python virtual environment
-- [ ] Install optional dependencies (psutil)
-- [ ] Read contribution guidelines
+-- [ ] Read contribution guidelines
 - [ ] Review code structure
 
 ## Success Criteria
@@ -290,29 +206,16 @@ After successful installation:
 7. Search and filters work
 8. No crashes or freezes
 
-## Final Verification
-
-- [ ] Opened application 3+ times successfully
-- [ ] No error messages on startup
-- [ ] All tabs accessible
-- [ ] Graphs updating smoothly
-- [ ] Search works correctly
-- [ ] Process selection works
-- [ ] Status bar updates
-- [ ] Can close application cleanly
-- [ ] Read documentation (at least QUICK_START.md)
-- [ ] Know where to find help (README_PYQT.md, INSTALL.md)
-
 ---
 
 ✅ **ALL CHECKS PASSED?** Congratulations! ELPM is successfully installed and working.
 
 ❌ **Some checks failed?** See INSTALL.md troubleshooting section or review error messages.
 
-**Date Completed**: _______________  
-**Python Version**: _______________  
-**PyQt6 Version**: _______________  
-**Operating System**: _______________  
+**Date Completed**: _______________
+**Python Version**: _______________
+**PyQt6 Version**: _______________
+**Operating System**: _______________
 
 ---
 

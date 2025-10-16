@@ -4,7 +4,7 @@
 
 This is a complete PyQt6 desktop application conversion of the ELPM (Enhanced Linux Process Monitor) React web application. It provides a professional, security-focused process monitoring interface with dark theme, real-time graphs, and comprehensive process details.
 
-## 🎯 Quick Links
+## Quick Links
 
 - **Getting Started**: See [QUICK_START.md](QUICK_START.md)
 - **Installation**: See [INSTALL.md](INSTALL.md)
@@ -12,7 +12,7 @@ This is a complete PyQt6 desktop application conversion of the ELPM (Enhanced Li
 - **Features**: See [FEATURES.md](FEATURES.md)
 - **Changes**: See [CHANGELOG.md](CHANGELOG.md)
 
-## 🚀 Quick Start (1 minute)
+## Quick Start (1 minute)
 
 ```bash
 # Linux/macOS
@@ -64,7 +64,7 @@ src/
     └── README_SUMMARY.md    # This file
 ```
 
-## ✨ Key Features
+## Key Features
 
 ### ✅ Fully Functional
 - **5 Tab Navigation**: Processes, Process Tree, Network, Graphs, Search History
@@ -75,15 +75,6 @@ src/
 - **Search & Filter**: Global search and advanced filtering
 - **Dark Theme**: Professional security tool aesthetic
 - **Auto-refresh**: Configurable 2-second updates
-
-### ⚠️ UI Only (Not Functional Yet)
-- Signal control buttons (SIGTERM, SIGKILL, SIGSTOP, SIGCONT)
-- Export to CSV
-- Window minimize/close buttons
-- Settings dialog
-- Process Tree view
-- Network connections view
-- Search History view
 
 ## 🎨 Design Specifications
 
@@ -98,21 +89,12 @@ src/
 | **Info Color**    | Light Cyan (#4ecdc4)                    |
 | **Font**          | Segoe UI 9pt / Consolas 9pt (monospace) |
 
-## 🐛 Bug Fixes (v1.0.1)
-
-**FIXED**: `AttributeError: 'ProcessesView' object has no attribute 'process_table'`
-- Issue: `populate_table()` was called before `self.process_table` was assigned
-- Solution: Moved `populate_table()` call to after table creation
-- Status: ✅ Resolved
 
 ## 📦 Dependencies
 
 ### Required
 - Python 3.8+ (3.10+ recommended)
 - PyQt6 6.5.0+
-
-### Optional
-- psutil 5.9.0+ (for real system monitoring)
 
 ## 🔧 Installation
 
@@ -131,7 +113,7 @@ pip install PyQt6
 python elpm_main.py
 ```
 
-## 📖 Documentation Files
+## Documentation Files
 
 | File                | Purpose                                                 |
 |---------------------|---------------------------------------------------------|
@@ -161,78 +143,6 @@ python elpm_main.py
 3. Follow code structure in existing files
 4. Test with `test_imports.py` before committing
 
-## 🚧 Known Limitations
-
-1. **Mock Data**: Uses sample processes, not real system data
-2. **No Signal Sending**: Control buttons are visual only
-3. **Incomplete Views**: Process Tree, Network, Search History not implemented
-4. **No Export**: CSV export button non-functional
-5. **No Real Monitoring**: Requires psutil integration for actual data
-
-## 🔮 Future Enhancements
-
-### Short Term (Easy)
-- [ ] Connect window control buttons (minimize, close)
-- [ ] Implement CSV export functionality
-- [ ] Add settings dialog (refresh rate, theme options)
-- [ ] Implement search history tracking
-
-### Medium Term (Moderate)
-- [ ] Integrate psutil for real process data
-- [ ] Add signal sending functionality (with permissions check)
-- [ ] Implement Process Tree view with hierarchy
-- [ ] Add Network connections view
-- [ ] Resource usage alerts
-
-### Long Term (Complex)
-- [ ] Process comparison and diff
-- [ ] Historical data logging and export
-- [ ] Advanced filtering with query language
-- [ ] CPU affinity and priority management
-- [ ] Plugin system for extensions
-- [ ] Multi-machine monitoring
-
-## 🤝 How to Contribute
-
-### Adding Real Process Monitoring
-
-```python
-# Install psutil
-pip install psutil
-
-# Modify models/process_model.py
-import psutil
-
-def get_real_processes():
-    processes = []
-    for proc in psutil.process_iter(['pid', 'name', 'username', 'cpu_percent']):
-        try:
-            processes.append(Process(
-                pid=proc.info['pid'],
-                user=proc.info['username'],
-                cpu=proc.info['cpu_percent'],
-                # ... other fields
-            ))
-        except (psutil.NoSuchProcess, psutil.AccessDenied):
-            pass
-    return processes
-```
-
-### Enabling Signal Controls
-
-```python
-# In gui/views/processes_view.py
-import os
-import signal
-
-def send_sigterm(self):
-    if self.selected_process:
-        try:
-            os.kill(self.selected_process.pid, signal.SIGTERM)
-        except PermissionError:
-            # Show error dialog
-            pass
-```
 
 ## 📊 Performance Metrics
 
@@ -245,7 +155,7 @@ def send_sigterm(self):
 | **Max Processes**       | 1000+ smoothly           |
 | **Refresh Rate**        | 2 seconds (configurable) |
 
-## 🎯 Use Cases
+## Use Cases
 
 ### Security Professionals
 - Monitor for suspicious processes (crypto miners, malware)
@@ -265,7 +175,7 @@ def send_sigterm(self):
 - Track child processes
 - Profile application behavior
 
-## 📞 Support
+## Support
 
 ### Getting Help
 1. Check `INSTALL.md` for installation issues
@@ -279,15 +189,8 @@ def send_sigterm(self):
 3. Check `CHANGELOG.md` for known issues
 4. Provide error messages and system information
 
-## 🏆 Credits
 
-**Original Design**: React-based ELPM web application
-**PyQt6 Conversion**: Complete desktop application rewrite
-**Version**: 1.0.1
-**Last Updated**: 2025-10-08
-**License**: See project license
-
-## 🎉 Success Indicators
+## Success Indicators
 
 After installation, you should see:
 
@@ -298,6 +201,9 @@ After installation, you should see:
 ✅ Status bar with CPU/Memory stats
 ✅ Real-time graphs updating
 ✅ Process details on right panel
+✅ Process tree details on top panel
+✅ Network details on top panel
+
 
 If you see all of these, congratulations! ELPM is working correctly.
 

@@ -1,6 +1,6 @@
 # ELPM - Frequently Asked Questions (FAQ)
 
-## 📋 Table of Contents
+## Table of Contents
 
 1. [Installation & Setup](#installation--setup)
 2. [Usage & Features](#usage--features)
@@ -76,31 +76,21 @@ Or see [CHECKLIST.md](CHECKLIST.md) for a complete verification checklist.
 
 ### Q: Is the process data real?
 
-**A:** No, currently ELPM uses sample/mock data for demonstration. To get real process data:
+**A:** Yes, the ELPM displays real data. However any other to see them, here's what you have to do:
 
 1. Install psutil: `pip install psutil`
-2. Modify `models/process_model.py` to fetch real processes
-3. See [README_PYQT.md](README_PYQT.md) § Adding Real Process Data
+2. See [README_PYQT.md](README_PYQT.md) § Adding Real Process Data
 
 ### Q: Do the signal buttons (SIGTERM, SIGKILL, etc.) work?
 
-**A:** Not yet. They're UI-only in v1.0.1. To implement:
-- Add signal sending functionality
-- Requires proper permissions
-- See [README_PYQT.md](README_PYQT.md) § Adding Signal Functionality
+**A:** Yes. They all work. If they don't work, then:
+- Might require proper permissions
+- See [README_PYQT.md](README_PYQT.md) § Adding Signal Functionality if none
 
-### Q: Why are some tabs empty ("Coming soon")?
-
-**A:** Process Tree, Network, and Search History tabs are not implemented yet. Currently working tabs:
-- ✅ Processes (fully functional)
-- ✅ Graphs (fully functional)
-- ⚠️ Process Tree (placeholder)
-- ⚠️ Network (placeholder)
-- ⚠️ Search History (placeholder)
 
 ### Q: How do I search for a process?
 
-**A:** 
+**A:**
 1. Click the search bar at the top (or press Ctrl+F)
 2. Type process name, PID, or part of command
 3. Table filters automatically
@@ -127,24 +117,15 @@ See [README_PYQT.md](README_PYQT.md) § Color Coding.
 
 ### Q: Can I export data to CSV?
 
-**A:** Not yet. The button exists but isn't functional in v1.0.1.
+**A:** Yes you can.
 
 ### Q: How often does the data refresh?
 
-**A:** 
+**A:**
 - Main data: Every 2 seconds (configurable)
 - Graphs: Every 2 seconds
 - Status bar: Every 1 second
 - You can disable auto-refresh with the checkbox
-
-### Q: What are the keyboard shortcuts?
-
-**A:**
-- `Ctrl+F` or `/`: Focus search bar
-- `Ctrl+R`: Refresh (when auto-refresh is off)
-- `Ctrl+W` or `Ctrl+Q`: Close application
-- `Arrow Keys`: Navigate process list
-- `Tab`: Switch between tabs
 
 ---
 
@@ -174,9 +155,6 @@ self.setGeometry(100, 100, 1400, 800)  # x, y, width, height
 
 Change `1400, 800` to your preferred size.
 
-### Q: Can I add more processes to the sample data?
-
-**A:** Yes. Edit `models/process_model.py` and add to the `processes` list in `get_sample_processes()`.
 
 ### Q: Can I change the refresh rate?
 
@@ -267,48 +245,6 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) § DPI Issues.
 
 ---
 
-## Development
-
-### Q: How can I add real system monitoring?
-
-**A:** 
-1. Install psutil: `pip install psutil`
-2. Modify `models/process_model.py`:
-
-```python
-import psutil
-
-def get_real_processes():
-    processes = []
-    for proc in psutil.process_iter(['pid', 'name', 'username', 'cpu_percent']):
-        try:
-            processes.append(Process(
-                pid=proc.info['pid'],
-                # ... map other fields
-            ))
-        except (psutil.NoSuchProcess, psutil.AccessDenied):
-            pass
-    return processes
-```
-
-See [README_PYQT.md](README_PYQT.md) § Adding Real Process Data.
-
-### Q: How do I implement the signal controls?
-
-**A:**
-```python
-import os, signal
-
-def send_signal(self, sig):
-    if self.selected_process:
-        try:
-            os.kill(self.selected_process.pid, sig)
-        except PermissionError:
-            # Show error dialog
-            pass
-```
-
-See [README_PYQT.md](README_PYQT.md) § Adding Signal Functionality.
 
 ### Q: How is the application structured?
 
@@ -328,7 +264,7 @@ See [README_PYQT.md](README_PYQT.md) § Adding Signal Functionality.
 
 ### Q: Can I add new tabs?
 
-**A:** Yes! 
+**A:** Yes!
 1. Create new view in `gui/views/my_view.py`
 2. Add to `gui/main_window.py`:
 ```python
@@ -542,6 +478,6 @@ See [CHANGELOG.md](CHANGELOG.md) § Future Enhancements.
 
 ---
 
-**Last Updated**: 2025-10-08  
-**Version**: 1.0.1  
+**Last Updated**: 2025-10-08
+**Version**: 1.0.1
 **Questions Answered**: 50+

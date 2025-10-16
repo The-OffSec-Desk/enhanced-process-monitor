@@ -45,19 +45,12 @@ python elpm_main.py
 - **Sort by**: CPU%, Memory%, PID, or Name
 - **Checkboxes**: Root only, Hide kernel threads, Auto-refresh
 
-### 4. Control Processes (Visual only - not functional yet)
-- **SIGTERM** (Green): Graceful termination
-- **SIGKILL** (Red): Force kill
-- **SIGSTOP** (Yellow): Pause process
-- **SIGCONT** (Cyan): Resume process
+### 4. Control Processes
+- SIGTERM (Green): Graceful termination
+- SIGKILL (Red): Force kill
+- SIGSTOP (Yellow): Pause process
+- SIGCONT (Cyan): Resume process
 
-## Keyboard Shortcuts
-
-- `Ctrl+F` or `/` - Focus search bar
-- `Ctrl+R` - Refresh (when auto-refresh is off)
-- `Ctrl+W` or `Ctrl+Q` - Close application
-- `Arrow Keys` - Navigate process list
-- `Tab` - Switch between tabs
 
 ## Color Meanings
 
@@ -98,57 +91,6 @@ python elpm_main.py
 
 ## Troubleshooting
 
-### "ModuleNotFoundError: No module named 'PyQt6'"
-```bash
-pip install PyQt6
-```
-
-### "No module named 'gui'"
-```bash
-"""
-ELPM - Enhanced Linux Process Monitor
-PyQt6 Desktop Application
-Main application entry point
-"""
-
-import sys
-from PyQt6.QtWidgets import QApplication
-from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QFont, QIcon
-from gui.main_window import MainWindow
-
-
-def main():
-    """Initialize and run the ELPM application"""
-    # Enable High DPI scaling
-    QApplication.setHighDpiScaleFactorRoundingPolicy(
-        Qt.HighDpiScaleFactorRoundingPolicy.PassThrough
-    )
-    
-    app = QApplication(sys.argv)
-    app.setApplicationName("ELPM")
-    app.setApplicationVersion("1.0")
-
-    # ✅ Global app icon
-    app.setWindowIcon(QIcon("/home/gr3ytrac3/Pictures/desktop-images/ELPM.png"))
-    
-    # Set default application font
-    font = QFont("Segoe UI", 9)
-    app.setFont(font)
-    
-    # Create and show main window
-    window = MainWindow()
-    window.show()
-    
-    sys.exit(app.exec())
-
-
-if __name__ == "__main__":
-    main()
-# Make sure you're in the src directory
-cd /path/to/elpm-desktop/src
-python elpm_main.py
-```
 
 ### Application doesn't start
 ```bash
@@ -161,16 +103,14 @@ python --version
 
 ## Next Steps
 
-1. **Add real monitoring**: Install `psutil` for actual system data
+1. **Add monitoring**: Install `psutil` for system data
    ```bash
    pip install psutil
    ```
 
 2. **Customize theme**: Edit `gui/styles.py`
 
-3. **Enable signal controls**: See `README_PYQT.md` for implementation
-
-4. **Read full documentation**: See `README_PYQT.md` and `INSTALL.md`
+3. **Read full documentation**: See `README_PYQT.md` and `INSTALL.md`
 
 ---
 

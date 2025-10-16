@@ -1,8 +1,8 @@
 # ELPM PyQt6 - Changelog
 
-## Version 1.1.0 (2025-10-08) - Real-Time Monitoring Release
+## Version 1.0.0 (10-15-2025) - Real-Time Monitoring Release
 
-### 🎉 Major Features Added
+### Major Features Added
 
 **Real-Time Process Monitoring**:
 - ✅ Integrated psutil for real system process data
@@ -42,23 +42,16 @@
 
 ### Technical Changes
 
-**New Dependencies**:
-- Added `psutil>=5.9.0` to requirements.txt
-- Updated launcher scripts to auto-install psutil
 
 **File Changes**:
 - `models/process_model.py`: Complete rewrite with psutil integration
 - `gui/views/processes_view.py`: Added signal sending and CSV export
-- `gui/views/graphs_view.py`: Real data instead of simulated
 - `gui/widgets/status_bar.py`: Real system stats
 - `gui/main_window.py`: Fixed timer management
 - `run_elpm.sh`: Added psutil installation check
 - `run_elpm.bat`: Added psutil installation check
 - `test_imports.py`: Added psutil verification
 
-**New Documentation**:
-- `REAL_TIME_MONITORING.md`: Complete guide to new features
-- `BUTTON_COLORS.md`: Signal button color guide
 
 ### Improvements
 
@@ -66,8 +59,6 @@
 - Better error handling for process access
 - Graceful handling of permission denied errors
 - Proper cleanup of zombie processes
-- Color-coded process status (running/sleeping/zombie)
-- Better memory formatting (B/KB/MB/GB/TB)
 
 ### Performance
 
@@ -81,7 +72,6 @@
 - Requires psutil for full functionality
 - Signal controls require appropriate permissions
 - Some process details may be hidden without elevated privileges
-- Process Tree, Network, and Search History tabs still placeholder
 
 ## Version 1.0.1 (2025-10-08) - Bug Fix Release
 
@@ -92,7 +82,7 @@
   - This was causing the application to crash on startup
 
 ### Added
-- **Launcher Scripts**: 
+- **Launcher Scripts**:
   - `run_elpm.sh` for Linux/macOS with automatic PyQt6 installation
   - `run_elpm.bat` for Windows with automatic PyQt6 installation
 - **Documentation**:
@@ -102,12 +92,10 @@
 - **README Updates**:
   - Added troubleshooting section to `README_PYQT.md`
   - Added environment setup instructions
-  - Added DPI scaling solutions
 
-## Version 1.0.0 (2025-10-08) - Initial Release
+## Version 1.0.0 (10-15-2025) - Initial Release
 
 ### Features
-- Complete PyQt6 conversion of React-based ELPM application
 - Five main tabs: Processes, Process Tree, Network, Graphs, Search History
 - Real-time process monitoring with 22 sample processes
 - Detailed process information panel
@@ -185,30 +173,6 @@
   - Status bar: 35px
   - Process table: 70% width
   - Details panel: 30% width
-
-### Known Limitations
-- Process data is currently sample/mock data
-- Signal controls are non-functional (UI only)
-- Process Tree tab not implemented
-- Network tab not implemented
-- Search History tab not implemented
-- No actual system monitoring (requires psutil integration)
-- No process signal sending functionality
-- No export to CSV functionality (button present but non-functional)
-
-### Future Enhancements
-- Integration with psutil for real process data
-- Implement signal sending functionality
-- Add Process Tree view with parent-child relationships
-- Add Network connections view
-- Add Search History tracking
-- Export to CSV/JSON functionality
-- Process filtering with advanced queries
-- Process grouping by user/application
-- Alert system for suspicious processes
-- Resource usage alerts
-- Multi-platform optimizations
-
 ---
 
 ## How to Report Issues
@@ -220,13 +184,3 @@ If you encounter any bugs or issues:
 3. Run `test_imports.py` to verify setup
 4. Check that you're in the correct directory (`src/`)
 5. Look for similar issues in this changelog
-
-## Migration from React Version
-
-This PyQt6 version maintains visual parity with the React version while adapting to desktop application patterns:
-
-- Tabs instead of React routing
-- Native Qt widgets instead of web components
-- QPainter for custom graphics instead of Recharts
-- Qt stylesheets instead of Tailwind CSS
-- Python dataclasses instead of TypeScript interfaces
