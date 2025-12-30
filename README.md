@@ -4,6 +4,8 @@
 
 **Version 1.1.0** - Real-time process monitoring with fullscreen support
 
+![](https://res.cloudinary.com/dipvhqnzw/image/upload/v1767061129/Screenshot_From_2025-12-30_03-15-01_fa9wdc.png)
+
 ## 🚀 Quick Install & Run
 
 ### Linux/macOS (Automated)
