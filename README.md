@@ -1,7 +1,35 @@
 <div align="center"><img src="src/assets/icons/ELPM-preview.png" alt="ELPM Logo" width="200"/></div>
 
+# ELPM - Enhanced Linux Process Monitor
 
-# ELPM Documentation Index
+**Version 1.1.0** - Real-time process monitoring with fullscreen support
+
+## 🚀 Quick Install & Run
+
+### Linux/macOS (Automated)
+```bash
+git clone https://github.com/The-OffSec-Desk/enhanced-process-monitor.git
+cd enhanced-process-monitor/src
+chmod +x run_elpm.sh
+./run_elpm.sh
+```
+
+### Windows (Automated)
+```cmd
+git clone https://github.com/The-OffSec-Desk/enhanced-process-monitor.git
+cd enhanced-process-monitor\src
+run_elpm.bat
+```
+
+### Manual Installation
+```bash
+pip install PyQt6 psutil
+python src/elpm_main.py
+```
+
+---
+
+## 📖 Documentation Index
 
 ## Complete Documentation Guide
 
