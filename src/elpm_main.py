@@ -23,7 +23,7 @@ def main():
 
     app = QApplication(sys.argv)
     app.setApplicationName("ELPM")
-    app.setApplicationVersion("1.0")
+    app.setApplicationVersion("1.1")
     app.setDesktopFileName("elpmd.desktop")
 
     base_dir = os.path.dirname(os.path.abspath(__file__))

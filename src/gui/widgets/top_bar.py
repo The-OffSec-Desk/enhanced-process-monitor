@@ -44,7 +44,7 @@ class TopBar(QFrame):
         title_label.setStyleSheet("font-size: 16px; font-weight: bold; color: #e0e0e0;")
         title_layout.addWidget(title_label)
         
-        version_label = QLabel("v1.0")
+        version_label = QLabel("v1.1")
         version_label.setStyleSheet("font-size: 11px; color: #666666;")
         version_label.setAlignment(Qt.AlignmentFlag.AlignBottom)
         title_layout.addWidget(version_label)

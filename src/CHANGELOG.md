@@ -1,5 +1,31 @@
 # ELPM PyQt6 - Changelog
 
+## Version 1.1.0 (12-30-2025) - Fullscreen Enhancement Release
+
+### New Features Added
+
+**Fullscreen Functionality**:
+- ✅ App starts maximized by default for better user experience
+- ✅ Added fullscreen toggle button (⛶) in top bar
+- ✅ Toggle between normal and fullscreen modes
+- ✅ Improved window management and responsiveness
+
+**User Experience Improvements**:
+- ✅ Better default window sizing
+- ✅ Enhanced UI controls
+- ✅ Updated diagnose.py for compatibility
+
+### Technical Changes
+
+**File Changes**:
+- `src/elpm_main.py`: Changed to showMaximized() for default startup
+- `src/gui/main_window.py`: Added toggle_fullscreen() method
+- `src/gui/widgets/top_bar.py`: Added fullscreen button and signal
+- `src/diagnose.py`: Updated imports for compatibility
+- `src/AppImageBuilder.yml`: Added for AppImage packaging
+
+---
+
 ## Version 1.0.0 (10-15-2025) - Real-Time Monitoring Release
 
 ### Major Features Added
