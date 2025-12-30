@@ -5,6 +5,7 @@ Graphs view showing CPU and Memory usage over time
 import random
 import math
 from collections import deque
+import psutil
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QFrame, QHBoxLayout
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPainter, QColor, QPen, QBrush, QLinearGradient, QFont
@@ -178,11 +179,13 @@ class StatsPanel(QFrame):
 
 
 class GraphsView(QWidget):
-    """Graphs view showing CPU and Memory usage history"""
+    """Graphs view showing CPU, Memory, Disk, and Network usage history"""
     
     def __init__(self):
         super().__init__()
         self.time_counter = 0
+        self.prev_disk_io = psutil.disk_io_counters()
+        self.prev_net_io = psutil.net_io_counters()
         self.init_ui()
     
     def init_ui(self):
@@ -199,6 +202,22 @@ class GraphsView(QWidget):
         self.memory_graph = GraphWidget("Memory Usage History (60 seconds)", "#ffd93d")
         layout.addWidget(self.memory_graph)
         
+        # Create bottom row for Disk and Network
+        bottom_layout = QHBoxLayout()
+        bottom_layout.setSpacing(16)
+        
+        # Disk I/O Graph
+        self.disk_graph = GraphWidget("Disk I/O (KB/s)", "#51cf66", "KB/s")
+        self.disk_graph.setMinimumHeight(200)
+        bottom_layout.addWidget(self.disk_graph)
+        
+        # Network I/O Graph
+        self.network_graph = GraphWidget("Network I/O (KB/s)", "#7c3aed", "KB/s")
+        self.network_graph.setMinimumHeight(200)
+        bottom_layout.addWidget(self.network_graph)
+        
+        layout.addLayout(bottom_layout)
+        
         # Stats Panel
         stats_container = QWidget()
         stats_layout = QHBoxLayout(stats_container)
@@ -211,12 +230,16 @@ class GraphsView(QWidget):
         self.mem_stats = StatsPanel("Memory", "#ffd93d")
         stats_layout.addWidget(self.mem_stats)
         
+        self.disk_stats = StatsPanel("Disk I/O", "#51cf66")
+        stats_layout.addWidget(self.disk_stats)
+        
+        self.net_stats = StatsPanel("Network I/O", "#7c3aed")
+        stats_layout.addWidget(self.net_stats)
+        
         layout.addWidget(stats_container)
     
     def update_graphs(self):
         """Update graphs with new data points from real system data"""
-        import psutil
-        
         # Get real CPU and memory usage
         cpu_value = psutil.cpu_percent(interval=0.1)
         mem_value = psutil.virtual_memory().percent
@@ -225,9 +248,33 @@ class GraphsView(QWidget):
         self.cpu_graph.add_data_point(cpu_value)
         self.memory_graph.add_data_point(mem_value)
         
+        # Get disk I/O
+        current_disk_io = psutil.disk_io_counters()
+        if self.prev_disk_io:
+            disk_read_kb = (current_disk_io.read_bytes - self.prev_disk_io.read_bytes) / 1024
+            disk_write_kb = (current_disk_io.write_bytes - self.prev_disk_io.write_bytes) / 1024
+            disk_total_kb = disk_read_kb + disk_write_kb
+        else:
+            disk_total_kb = 0
+        self.prev_disk_io = current_disk_io
+        self.disk_graph.add_data_point(disk_total_kb)
+        
+        # Get network I/O
+        current_net_io = psutil.net_io_counters()
+        if self.prev_net_io:
+            net_sent_kb = (current_net_io.bytes_sent - self.prev_net_io.bytes_sent) / 1024
+            net_recv_kb = (current_net_io.bytes_recv - self.prev_net_io.bytes_recv) / 1024
+            net_total_kb = net_sent_kb + net_recv_kb
+        else:
+            net_total_kb = 0
+        self.prev_net_io = current_net_io
+        self.network_graph.add_data_point(net_total_kb)
+        
         # Update statistics
         cpu_data = list(self.cpu_graph.data_points)
         mem_data = list(self.memory_graph.data_points)
+        disk_data = list(self.disk_graph.data_points)
+        net_data = list(self.network_graph.data_points)
         
         if cpu_data:
             cpu_avg = sum(cpu_data) / len(cpu_data)
@@ -240,5 +287,17 @@ class GraphsView(QWidget):
             mem_max = max(mem_data)
             mem_min = min(mem_data)
             self.mem_stats.update_stats(mem_avg, mem_max, mem_min)
+            
+        if disk_data:
+            disk_avg = sum(disk_data) / len(disk_data)
+            disk_max = max(disk_data)
+            disk_min = min(disk_data)
+            self.disk_stats.update_stats(disk_avg, disk_max, disk_min)
+            
+        if net_data:
+            net_avg = sum(net_data) / len(net_data)
+            net_max = max(net_data)
+            net_min = min(net_data)
+            self.net_stats.update_stats(net_avg, net_max, net_min)
         
         self.time_counter += 1

@@ -1,0 +1,38 @@
+version: 1
+AppDir:
+  path: ./AppDir
+  app_info:
+    id: com.theoffsecdesk.ELPM
+    name: ELPM
+    icon: ELPM
+    version: 1.0
+    exec: usr/bin/ELPM
+    exec_args: "$@"
+  apt:
+    arch: amd64
+    sources:
+      - sourceline: 'deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse'
+        key_url: 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x871920D1991BC93C'
+    include:
+      - libc6:amd64
+      - libstdc++6:amd64
+      - libgcc-s1:amd64
+      - libglib2.0-0:amd64
+      - libgtk-3-0:amd64
+      - libgdk-pixbuf2.0-0:amd64
+      - libcairo-gobject2:amd64
+      - libpango-1.0-0:amd64
+      - libatk1.0-0:amd64
+      - libcairo2:amd64
+      - libgdk-pixbuf2.0-0:amd64
+      - libgtk-3-0:amd64
+  files:
+    include:
+      - /home/gr3ytrac3/rectify/enhanced-linux-process-monitor/src/dist/ELPM: usr/bin/ELPM
+      - /home/gr3ytrac3/rectify/enhanced-linux-process-monitor/src/assets/icons/ELPM-preview.png: ELPM.png
+  runtime:
+    env:
+      PATH: '${APPDIR}/usr/bin:${PATH}'
+AppImage:
+  arch: x86_64
+  update-information: None

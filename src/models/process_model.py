@@ -27,6 +27,7 @@ class ProcessModel:
     cwd: str
     open_files: int
     network_conns: int
+    priority: int
 
 
 def format_bytes(bytes_value):
@@ -94,6 +95,12 @@ def get_process_info(proc: psutil.Process) -> Optional[ProcessModel]:
             except (psutil.AccessDenied, psutil.ZombieProcess, OSError):
                 create_time = "N/A"
             
+            # Get priority/nice value
+            try:
+                priority = proc.nice()
+            except (psutil.AccessDenied, psutil.ZombieProcess):
+                priority = 0
+            
             return ProcessModel(
                 pid=proc.pid,
                 user=username,
@@ -110,7 +117,8 @@ def get_process_info(proc: psutil.Process) -> Optional[ProcessModel]:
                 cpu_time_sys=cpu_times.system,
                 cwd=cwd,
                 open_files=open_files,
-                network_conns=network_conns
+                network_conns=network_conns,
+                priority=priority
             )
     except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
         return None

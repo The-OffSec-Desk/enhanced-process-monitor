@@ -53,8 +53,8 @@ def main():
     print_header("PyQt6 Installation")
     
     try:
-        import PyQt6
-        pyqt_version = PyQt6.QtCore.PYQT_VERSION_STR
+        from PyQt6 import QtCore
+        pyqt_version = QtCore.PYQT_VERSION_STR
         print_check("PyQt6 Core", True, f"v{pyqt_version}")
     except ImportError as e:
         print_check("PyQt6 Core", False, str(e))
@@ -106,7 +106,7 @@ def main():
     print_header("Module Imports")
     
     try:
-        from models.process_model import Process, get_sample_processes
+        from models.process_model import ProcessModel, get_sample_processes
         processes = get_sample_processes()
         print_check("Process Model", True, f"{len(processes)} sample processes")
     except Exception as e:
@@ -114,22 +114,22 @@ def main():
         all_passed = False
     
     try:
-        from gui.styles import MAIN_STYLES
-        style_len = len(MAIN_STYLES)
+        from gui.styles import STYLESHEET
+        style_len = len(STYLESHEET)
         print_check("Styles", True, f"{style_len} characters")
     except Exception as e:
         print_check("Styles", False, str(e))
         all_passed = False
     
     try:
-        from gui.widgets.top_bar import TopBarWidget
+        from gui.widgets.top_bar import TopBar
         print_check("Top Bar Widget", True)
     except Exception as e:
         print_check("Top Bar Widget", False, str(e))
         all_passed = False
     
     try:
-        from gui.widgets.status_bar import StatusBarWidget
+        from gui.widgets.status_bar import StatusBar
         print_check("Status Bar Widget", True)
     except Exception as e:
         print_check("Status Bar Widget", False, str(e))

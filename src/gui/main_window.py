@@ -101,7 +101,8 @@ class MainWindow(QMainWindow):
         self.tab_widget.setDocumentMode(True)
 
         # Add tabs
-        self.processes_view = ProcessesView()
+        self.history_view = HistoryView()
+        self.processes_view = ProcessesView(history_callback=self.history_view)
         self.tab_widget.addTab(self.processes_view, "⚡ Processes")
 
         self.process_tree_view = ProcessTreeView()
@@ -113,8 +114,7 @@ class MainWindow(QMainWindow):
         self.graphs_view = GraphsView()
         self.tab_widget.addTab(self.graphs_view, "📊 Graphs")
 
-        self.history_view = HistoryView()
-        self.tab_widget.addTab(self.history_view, "🕐 Search History")
+        self.tab_widget.addTab(self.history_view, "🕐 Activity History")
 
         main_layout.addWidget(self.tab_widget)
 
@@ -125,6 +125,7 @@ class MainWindow(QMainWindow):
         # Connect search functionality
         self.top_bar.search_changed.connect(self.on_search_changed)
         self.top_bar.refresh_clicked.connect(self.on_refresh_clicked)
+        self.top_bar.fullscreen_toggled.connect(self.toggle_fullscreen)
 
     def setup_timers(self):
         """Setup update timers"""
@@ -147,9 +148,18 @@ class MainWindow(QMainWindow):
     def on_search_changed(self, query: str):
         """Handle search query changes"""
         self.processes_view.set_search_text(query)
+        if query.strip():
+            self.history_view.add_search_entry(query)
 
     def on_refresh_clicked(self):
         """Handle refresh button click"""
         self.processes_view.refresh_processes()
         self.graphs_view.update_graphs()
         self.update_status_bar()
+
+    def toggle_fullscreen(self):
+        """Toggle full screen mode"""
+        if self.isFullScreen():
+            self.showNormal()
+        else:
+            self.showFullScreen()

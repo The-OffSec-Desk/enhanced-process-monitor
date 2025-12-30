@@ -23,12 +23,13 @@ from models.process_model import ProcessModel, format_bytes, get_real_processes
 class ProcessesView(QWidget):
     """Main processes view with table and details panel"""
 
-    def __init__(self):
+    def __init__(self, history_callback=None):
         super().__init__()
         self.processes = []
         self.filtered_processes = []
         self.selected_process = None
         self.search_text = ""
+        self.history_callback = history_callback
         self.init_ui()
 
         # Start refresh timer
@@ -115,7 +116,7 @@ class ProcessesView(QWidget):
     def create_process_table(self):
         """Create the process table"""
         table = QTableWidget()
-        table.setColumnCount(9)
+        table.setColumnCount(10)
         table.setHorizontalHeaderLabels(
             [
                 "PID",
@@ -126,6 +127,7 @@ class ProcessesView(QWidget):
                 "RSS",
                 "Status",
                 "Threads",
+                "Priority",
                 "Command",
             ]
         )
@@ -148,7 +150,9 @@ class ProcessesView(QWidget):
         header.resizeSection(6, 90)
         header.setSectionResizeMode(7, QHeaderView.ResizeMode.Fixed)
         header.resizeSection(7, 70)
-        header.setSectionResizeMode(8, QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(8, QHeaderView.ResizeMode.Fixed)
+        header.resizeSection(8, 70)
+        header.setSectionResizeMode(9, QHeaderView.ResizeMode.Stretch)
 
         # Enable alternating row colors
         table.setAlternatingRowColors(True)
@@ -275,9 +279,17 @@ class ProcessesView(QWidget):
             threads_item.setFont(mono_font)
             self.process_table.setItem(row, 7, threads_item)
 
+            # Priority
+            priority_item = QTableWidgetItem(str(process.priority))
+            priority_item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+            priority_item.setFont(mono_font)
+            priority_color = "#51cf66" if process.priority < 0 else "#a0a0a0" if process.priority == 0 else "#ff6b6b"
+            priority_item.setForeground(QBrush(QColor(priority_color)))
+            self.process_table.setItem(row, 8, priority_item)
+
             # Command
             cmd_item = QTableWidgetItem(process.command[:80])
-            self.process_table.setItem(row, 8, cmd_item)
+            self.process_table.setItem(row, 9, cmd_item)
 
     def create_details_panel(self):
         """Create the right details panel"""
@@ -421,6 +433,29 @@ class ProcessesView(QWidget):
         )
         actions_layout.addWidget(self.sigcont_btn)
 
+        # Priority/Nice button
+        self.priority_btn = QPushButton("⚖ Priority")
+        self.priority_btn.setFixedHeight(40)
+        self.priority_btn.setStyleSheet(
+            """
+            QPushButton {
+                background-color: #2d5016;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #3d6820;
+            }
+            QPushButton:pressed {
+                background-color: #1f3412;
+            }
+        """
+        )
+        self.priority_btn.clicked.connect(self.change_priority)
+        actions_layout.addWidget(self.priority_btn)
+
         layout.addWidget(actions_frame)
 
         return panel
@@ -456,6 +491,9 @@ class ProcessesView(QWidget):
             # Try to send signal directly
             os.kill(pid, signal)
             QMessageBox.information(self, "Success", f"{signal_name} sent to PID {pid}")
+            # Log to history
+            if self.history_callback:
+                self.history_callback.add_action_entry(f"Sent {signal_name} to {proc_name} (PID: {pid})")
             # Refresh after a short delay
             QTimer.singleShot(500, self.refresh_processes)
 
@@ -482,9 +520,15 @@ class ProcessesView(QWidget):
                         QMessageBox.information(
                             self, "Success", f"{signal_name} sent to PID {pid}"
                         )
+                        # Log to history
+                        if self.history_callback:
+                            self.history_callback.add_action_entry(f"Sent {signal_name} to {proc_name} (PID: {pid}) with sudo")
                         QTimer.singleShot(500, self.refresh_processes)
                     else:
                         QMessageBox.critical(self, "Error", f"Failed: {result.stderr}")
+                        # Log failed action
+                        if self.history_callback:
+                            self.history_callback.add_action_entry(f"Failed to send {signal_name} to {proc_name} (PID: {pid}): {result.stderr}", False)
 
                 except subprocess.TimeoutExpired:
                     QMessageBox.critical(self, "Error", "Command timed out")
@@ -493,8 +537,75 @@ class ProcessesView(QWidget):
 
         except ProcessLookupError:
             QMessageBox.critical(self, "Error", "Process no longer exists")
+            if self.history_callback:
+                self.history_callback.add_action_entry(f"Failed to send {signal_name} to {proc_name} (PID: {pid}): Process no longer exists", False)
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Failed to send signal: {str(e)}")
+            if self.history_callback:
+                self.history_callback.add_action_entry(f"Failed to send {signal_name} to {proc_name} (PID: {pid}): {str(e)}", False)
+
+    def change_priority(self):
+        """Change the priority (nice value) of selected process"""
+        if not self.selected_process:
+            QMessageBox.warning(self, "No Selection", "Please select a process first")
+            return
+
+        pid = self.selected_process.pid
+        proc_name = (
+            self.selected_process.command.split()[0]
+            if self.selected_process.command
+            else "Unknown"
+        )
+
+        # Get current nice value
+        try:
+            import psutil
+            proc = psutil.Process(pid)
+            current_nice = proc.nice()
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Cannot get current priority: {str(e)}")
+            return
+
+        # Ask for new nice value
+        from PyQt6.QtWidgets import QInputDialog
+        new_nice, ok = QInputDialog.getInt(
+            self,
+            "Change Priority",
+            f"Current nice value for {proc_name} (PID: {pid}): {current_nice}\n\n"
+            "Enter new nice value (-20 to 19, lower = higher priority):",
+            current_nice,
+            -20,
+            19,
+            1
+        )
+
+        if not ok:
+            return
+
+        try:
+            # Try to change nice value
+            proc.nice(new_nice)
+            QMessageBox.information(
+                self, "Success",
+                f"Changed priority of {proc_name} (PID: {pid}) to {new_nice}"
+            )
+            # Log to history
+            if self.history_callback:
+                self.history_callback.add_action_entry(f"Changed priority of {proc_name} (PID: {pid}) to {new_nice}")
+            # Refresh after a short delay
+            QTimer.singleShot(500, self.refresh_processes)
+
+        except PermissionError:
+            QMessageBox.critical(
+                self, "Permission Denied",
+                "Cannot change process priority. Try running as root or with sudo."
+            )
+            if self.history_callback:
+                self.history_callback.add_action_entry(f"Failed to change priority of {proc_name} (PID: {pid}): Permission denied", False)
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to change priority: {str(e)}")
+            if self.history_callback:
+                self.history_callback.add_action_entry(f"Failed to change priority of {proc_name} (PID: {pid}): {str(e)}", False)
 
     def export_csv(self):
         """Export current process list to CSV"""
@@ -521,6 +632,7 @@ class ProcessesView(QWidget):
                         "RSS",
                         "Status",
                         "Threads",
+                        "Priority",
                         "Command",
                     ]
                 )
@@ -536,6 +648,7 @@ class ProcessesView(QWidget):
                             format_bytes(process.rss),
                             process.status,
                             process.threads,
+                            process.priority,
                             process.command,
                         ]
                     )
@@ -609,6 +722,8 @@ class ProcessesView(QWidget):
         self.add_detail_row("Memory RSS:", format_bytes(p.rss), mono_font)
         self.add_detail_row("Memory VSZ:", format_bytes(p.vsz), mono_font)
         self.add_detail_row("Threads:", str(p.threads), mono_font)
+        priority_color = "#51cf66" if p.priority < 0 else "#a0a0a0" if p.priority == 0 else "#ff6b6b"
+        self.add_detail_row("Priority (Nice):", str(p.priority), mono_font, priority_color)
 
         # Timing Section
         self.add_section_header("Timing", "#51cf66")

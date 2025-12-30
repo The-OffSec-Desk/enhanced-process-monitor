@@ -12,6 +12,7 @@ class TopBar(QFrame):
     
     search_changed = pyqtSignal(str)
     refresh_clicked = pyqtSignal()
+    fullscreen_toggled = pyqtSignal()
     
     def __init__(self):
         super().__init__()
@@ -77,6 +78,13 @@ class TopBar(QFrame):
         self.settings_btn.setObjectName("iconButton")
         self.settings_btn.setToolTip("Settings")
         controls_layout.addWidget(self.settings_btn)
+        
+        # Full screen button
+        self.fullscreen_btn = QPushButton("⛶")
+        self.fullscreen_btn.setObjectName("iconButton")
+        self.fullscreen_btn.setToolTip("Toggle Full Screen")
+        self.fullscreen_btn.clicked.connect(self.fullscreen_toggled.emit)
+        controls_layout.addWidget(self.fullscreen_btn)
         
         # Minimize button
         self.minimize_btn = QPushButton("−")
