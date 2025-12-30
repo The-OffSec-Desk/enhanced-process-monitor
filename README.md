@@ -257,30 +257,30 @@ docs/ (or src/)
 
 ## Learning Paths
 
-### Path 1: End User (30 minutes)
-1. [QUICK_START.md](src/QUICK_START.md) - 5 min
-2. Run application - 2 min
-3. Explore features - 15 min
-4. [README_PYQT.md](src/README_PYQT.md) § Usage - 8 min
+### Path 1: End User 
+1. [QUICK_START.md](src/QUICK_START.md) 
+2. Run application 
+3. Explore features 
+4. [README_PYQT.md](src/README_PYQT.md) § Usage 
 
-### Path 2: Power User (2 hours)
-1. [INSTALL.md](src/INSTALL.md) - 20 min
-2. [README_PYQT.md](src/README_PYQT.md) - 40 min
-3. [FEATURES.md](src/FEATURES.md) - 30 min
-4. Experiment with customization - 30 min
+### Path 2: Power User 
+1. [INSTALL.md](src/INSTALL.md) 
+2. [README_PYQT.md](src/README_PYQT.md) 
+3. [FEATURES.md](src/FEATURES.md) 
+4. Experiment with customization 
 
-### Path 3: Developer (4 hours)
-1. [README_SUMMARY.md](src/README_SUMMARY.md) - 15 min
-2. [ARCHITECTURE.md](src/ARCHITECTURE.md) - 90 min
-3. [FEATURES.md](src/FEATURES.md) - 30 min
-4. Review source Cross-references - 90 min
-5. [CHANGELOG.md](src/CHANGELOG.md) - 15 min
+### Path 3: Developer 
+1. [README_SUMMARY.md](src/README_SUMMARY.md) 
+2. [ARCHITECTURE.md](src/ARCHITECTURE.md) 
+3. [FEATURES.md](src/FEATURES.md) 
+4. Review source Cross-references 
+5. [CHANGELOG.md](src/CHANGELOG.md) 
 
-### Path 4: Contributor (8 hours)
-1. All documents above - 4 hours
-2. Set up development environment - 1 hour
-3. Add psutil integration - 2 hours
-4. Test and document changes - 1 hour
+### Path 4: Contributor 
+1. All documents above 
+2. Set up development environment
+3. Add psutil integration
+4. Test and document changes
 
 ---
 
